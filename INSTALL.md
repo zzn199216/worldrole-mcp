@@ -13,7 +13,7 @@ WorldRole 帮你寻找跨境工作，在聊天中了解你的求职方向，并�
 3. MCP 名称 `worldrole`，地址 `https://mcp.worldrole.work/mcp`，传输 `Streamable HTTP`。游客完全省略 Authorization。保留其他 MCP 和现有 WorldRole 密钥；已有相同连接就复用。客户端只支持 stdio 时，不要把 HTTPS 地址当成命令：查看该客户端支持的桥接方式，说明尚缺的能力；不要无依据引入一个 npm 包。
 4. 支持 Agent Skills：将包内 `skills/worldrole/` 完整安装到该客户端可发现的用户技能目录，保留 references 相对路径。修改前保存仅受影响配置的本地私有备份；相同版本不重复安装。有同名但内容不同的技能时先检查并合并本地修改，不能直接覆盖。不要修改其他 skill、全局指令、权限或自动执行策略。
 5. 不支持技能文件：MCP 仍可用。通过 `boardwork_start` 获取流程，需要核验时读取资源 `worldrole://guides/verification` 或 prompt `worldrole_verify`。如果资源和 prompt 也不支持，读取 https://worldrole.work/guides/verification.md 。明确告诉用户是否具备持久化 skill，不把一次读取冒充安装完成。
-6. 用户需要账号时，打开 https://mcp.worldrole.work/join 注册，从 https://mcp.worldrole.work/account 生成密钥，配置 `Authorization: Bearer <个人密钥>`。请用户在客户端安全输入或私有配置中粘贴一次，不在聊天、截图、网址或日志展示密钥，不把密钥放进共享项目。不要重复执行 OAuth，也不要把有效密钥改成游客。其他排错见 https://worldrole.work/setup.md 。
+6. 用户需要跨设备或无长期记忆的 Agent 延续求职资料时，再介绍可选账号。支持 OAuth 的客户端优先通过 `https://mcp.worldrole.work/mcp` 发起连接，申请 `boardwork:read profile:manage`，让用户在 WorldRole 页面注册/登录并确认职业摘要访问。旧的只读授权不会自动扩大；缺少权限时重新授权即可，不要求重复填写已知经历。客户端只支持个人密钥时，用户可从 https://mcp.worldrole.work/account 生成密钥，并在客户端安全输入或私有配置中填写 `Authorization: Bearer <个人密钥>`。不在聊天、截图、网址或日志展示密钥，不把密钥放进共享项目。已有有效连接直接复用。登录 WorldRole 网站本身不会自动连接另一个网页 AI；无法接入 MCP 的客户端可使用账号页导出的摘要，但不能自动回写。详见 [云端职业摘要](docs/CLOUD_PROFILE.md)。
 7. 重载该连接（必要时告知需重启客户端），实际读取工具列表、调用 `boardwork_start`，再调用 `search_jobs(count=1)`。应能看到 8 个工具，普通客户端仍可用；支持的客户端还可看到 1 个 prompt 和 1 个指南资源。确认 skill 已被客户端发现，不只确认文件存在。若当前环境不能重载，说明配置已写入、连接验证待重启，而不是声称全部成功。
 8. 简短报告：MCP 是否连通、skill 是否已安装/可发现、搜索浏览能力是否可用。然后根据用户目标开始交流，不要求先填简历表。缺少搜索能力不阻止查询数据库，但不能声称实时核验过雇主。安装没有授权代投递、联系雇主、发送私人材料或付费。
 

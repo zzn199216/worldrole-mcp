@@ -32,6 +32,8 @@ Free sources have their own limits and coverage. Your AI client or model may cha
 
 Original code and skills use the [MIT License](LICENSE). Third-party job data retains its own terms.
 
-**Want to spend less time introducing yourself next time?** Important preferences can get lost or misunderstood in a long conversation, and switching computers or agents can mean starting again. Whenever it helps, [create a free WorldRole account or sign in](https://mcp.worldrole.work/join) and let your agent save a concise cloud summary of your career goals, preferences and key experience with your permission. Connect the same account on another device or agent to read that summary and continue your search.
+**Want to spend less time introducing yourself next time?** Important preferences can get lost or misunderstood in a long conversation, and switching computers or agents can mean starting again. If you use a web client, an agent without persistent memory, or several devices, you can [create a free WorldRole account or sign in](https://mcp.worldrole.work/join) and let your agent save a concise cloud summary of your career goals, preferences and key experience with your permission. Connect the same account on another device or agent to read that summary and continue your search.
 
 This is optional; you can keep using free job sources without it. Ask your agent to update or delete the summary whenever you like. It keeps important facts available for reference, rather than storing full conversations, resume attachments or emails.
+
+See [cloud career summaries](docs/CLOUD_PROFILE.md) for web connections and continuing without MCP.
