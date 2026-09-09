@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "worldrole": {
+      "url": "https://mcp.worldrole.work/mcp"
+    },
+    "worldrole-free-sources": {
+      "command": "REPLACE_WITH_INSTALLED_WORLDROLE_FREE_SOURCES_EXECUTABLE",
+      "args": []
+    }
+  }
+}
