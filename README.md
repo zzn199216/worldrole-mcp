@@ -4,7 +4,7 @@
 
 **让 AI 帮你找工作、整理求职资料，必要缺项一次补齐。**
 
-免费连接 [WorldRole](https://worldrole.work) 的远程 MCP；需要更广覆盖时，可选接入本仓库的免费职位源 MCP，直接查询 Himalayas、Greenhouse、Ashby 和 Lever。
+免费连接 [WorldRole](https://worldrole.work) 的远程 MCP；需要更广覆盖时，可选接入本仓库的免费职位源 MCP，查询 Himalayas、Jobicy、Arbeitnow、Greenhouse、Ashby 和 Lever，并在本地管理求职信、发送记录和公司回复。
 
 ## 直接开始，无需安装本地服务
 
@@ -30,7 +30,7 @@ WorldRole 云端提供 8 个工具：`boardwork_start`、`search_jobs`、`get_jo
 
 ## 可选：添加其他免费职位源
 
-主 WorldRole 连接不需要 Python。只有想启用额外来源时，才安装以下本地补充 MCP（Python 3.11+）：
+主 WorldRole 连接不需要 Python。想启用额外来源或本地申请工作流时，安装以下本地补充 MCP（Python 3.11+）：
 
 ```sh
 git clone https://github.com/zzn199216/worldrole-mcp.git
@@ -58,19 +58,36 @@ macOS / Linux：
 
 | 补充工具 | 用途 | 是否需要密钥 |
 |---|---|---|
-| `search_free_jobs` | 用公开岗位关键词查询 Himalayas，可传国家和页码 | 不需要 |
+| `search_free_jobs` | Himalayas / Jobicy / Arbeitnow，选源、缓存、链接去重、排除已看岗位、部分失败提示 | 不需要 |
 | `list_free_company_jobs` | 获取已知公司的 Greenhouse / Ashby / Lever 招聘板 | 不需要 |
 
 例如：“WorldRole 的结果不够时，再用免费来源查一下 Python 远程岗位；不要发送我的简历内容作为搜索词。”
 
 这些来源有各自的限流、更新周期和使用要求。ATS 查询需要从公司招聘页得到 board ID，并不是全网关键词搜索。不要自动轮询所有来源。详见 [来源与分页](docs/SOURCES.md)。
 
+## 从求职信到公司回复
+
+本地 0.2.0 的申请工具：
+
+| 工具 | 用途 |
+|---|---|
+| `get_application_capabilities` | 查看本地能力，优先复用已有邮箱 |
+| `prepare_application` / `get_applications` | 保存及修改草稿、校验附件、查看申请与待处理队列 |
+| `send_application` | 在用户授权范围内通过可选 SMTP 发送，核对内容指纹、防重复投递 |
+| `prepare_application_followup` | 检查邮箱后，准备一次已到期的线程内跟进 |
+| `record_application_event` | 保存已有邮箱工具的真实回执，记录回复、拒信与本人交接 |
+| `sync_application_replies` | 可选 IMAP 精确匹配回复引用头，收到非自动回复后暂停跟进 |
+
+例如：“先用你已经知道的资料帮我准备申请，必要缺项一次列给我。优先复用已连接的邮箱，在我授权的范围内发送和处理常规补件；收到面试、录用或需要我本人决定的内容时，再带着背景和建议回复交给我。”
+
+已有邮箱工具通常最省事；SMTP/IMAP 是可选补充，不必为了找工作重复配置邮箱。草稿不等于发送；邮件服务器接受不等于送达。持续检查需要实际运行的宿主调度器，未配置时只在下次运行检查。完整设置、处理边界及中英文说明见 [申请与邮件](docs/APPLICATIONS.md)；设计借鉴见 [参考项目](docs/DESIGN_REFERENCES.md)。要使用最新工作流，也请更新本仓库的 [Agent 技能](skills/worldrole/SKILL.md)。
+
 ## 隐私和能力范围
 
 - 游客查询无需账号；云端档案需要个人密钥。个人密钥只放客户端私有配置，不能提交到 GitHub。
-- 本地补充 MCP 仅发公开 GET 请求，不保存档案、简历或查询数据库。关键词、公司 ID 会发给对应提供方。
+- 职位源只发公开 GET 请求；关键词、公司 ID 发给对应提供方。公开响应缓存和私有申请记录存于本机独立目录，申请正文与附件不传给职位源。
 - 地区匹配、雇主身份和岗位有效性仍需核验；“remote”不等于全球可申请。
-- 当前不提供收发邮件、自动提交申请、后台跟进或通知执行器。技能只能协调宿主实际可用且已获授权的能力。
+- 可选本地邮件能力需要自己的邮箱与有效授权；完整来信阅读、网页表单和后台提醒仍依赖宿主工具。不会自动启动持续监控。
 - 第三方数据不因本仓库采用 MIT 许可而变成 MIT 数据；显示结果时保留来源及链接。
 
 ## 开发和贡献

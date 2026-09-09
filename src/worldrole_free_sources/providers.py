@@ -8,7 +8,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
-HOSTS = {'himalayas.app', 'boards-api.greenhouse.io', 'api.ashbyhq.com', 'api.lever.co', 'api.eu.lever.co'}
+HOSTS = {'jobicy.com', 'www.arbeitnow.com', 'himalayas.app', 'boards-api.greenhouse.io', 'api.ashbyhq.com', 'api.lever.co', 'api.eu.lever.co'}
 MAX_BYTES = 8 * 1024 * 1024
 
 

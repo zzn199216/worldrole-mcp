@@ -4,7 +4,7 @@
 
 **Let your AI help you find work and organize your career profile. Fill in essential missing details together, instead of answering repeated questions.**
 
-Connect to the free [WorldRole](https://worldrole.work) hosted MCP. For broader coverage, optionally add this repository's local job-source MCP to query Himalayas, Greenhouse, Ashby and Lever directly.
+Connect to the free [WorldRole](https://worldrole.work) hosted MCP. For broader coverage, optionally add this repository's local job-source MCP to query Himalayas, Jobicy, Arbeitnow, Greenhouse, Ashby and Lever, and manage private application drafts, receipts and replies locally.
 
 ## Get started without a local server
 
@@ -30,7 +30,7 @@ This repository contains client connection instructions, an [agent skill](skills
 
 ## Optional: add other free job sources
 
-The primary WorldRole connection does not require Python. Install the local companion only if you want additional sources. It requires Python 3.11+:
+The primary WorldRole connection does not require Python. Install the local companion if you want additional sources or the local application workflow. It requires Python 3.11+:
 
 ```sh
 git clone https://github.com/zzn199216/worldrole-mcp.git
@@ -58,19 +58,36 @@ In [examples/with-free-sources.json](examples/with-free-sources.json), replace t
 
 | Companion tool | Purpose | API key required? |
 |---|---|---|
-| `search_free_jobs` | Search Himalayas using public job keywords, with optional country and page | No |
+| `search_free_jobs` | Select Himalayas / Jobicy / Arbeitnow, cache results, deduplicate URLs, exclude seen jobs and retain partial failures | No |
 | `list_free_company_jobs` | Read a known company's Greenhouse, Ashby or Lever board | No |
 
 For example: “If WorldRole's results are insufficient, try the free sources for remote Python roles. Do not use my resume content as search keywords.”
 
 Each source has its own rate limits, refresh schedule and usage requirements. ATS queries require a board ID obtained from a company's careers page; they are not web-wide keyword searches. Do not automatically poll every source. See [sources and pagination](docs/SOURCES.md).
 
+## From application letters to company replies
+
+Local 0.2.0 application tools:
+
+| Tool | Purpose |
+|---|---|
+| `get_application_capabilities` | Inspect local capabilities; prefer an existing mailbox connection |
+| `prepare_application` / `get_applications` | Save and revise drafts, check attachments, inspect applications and attention queues |
+| `send_application` | Optional authorized SMTP sending with exact-content digest and duplicate prevention |
+| `prepare_application_followup` | Prepare one due threaded follow-up after checking the mailbox |
+| `record_application_event` | Retain real host-mail receipts and record replies, rejections and human handoffs |
+| `sync_application_replies` | Optional IMAP reply-header matching; pause follow-up on nonautomatic replies |
+
+For example: “Prepare applications from what you already know about me, and collect essential missing details into one request. Prefer my connected mailbox. Send and handle routine document requests within my authorization; bring interviews, offers and personal decisions to me with context and a suggested reply.”
+
+An existing mailbox tool is usually easiest; SMTP/IMAP is optional. Drafting is not sending, and server acceptance is not delivery. Ongoing checks require a running host scheduler; otherwise checks resume on the next run. See [applications and mail](docs/APPLICATIONS.md) for bilingual setup and boundaries, and [design references](docs/DESIGN_REFERENCES.md) for the projects informing this workflow. Update this repository's [agent skill](skills/worldrole/SKILL.md) for the latest workflow too.
+
 ## Privacy and capability boundaries
 
 - Guest searches do not require an account; cloud career profiles require a personal key. Store it only in private client settings, never on GitHub.
-- The local companion makes public GET requests only. It does not store profiles, resumes or a query database. Search keywords and board IDs are sent to the selected provider.
+- Job-source adapters make public GET requests. Search keywords and board IDs go to the selected provider. Public-response cache and private application records use a separate local directory; application text and attachments are not sent to job sources.
 - Applicant eligibility, employer identity and current vacancy status still need verification. “Remote” does not mean applicants worldwide are eligible.
-- No email sending or receiving, automatic application submission, background follow-up or notification executor is included. The skill coordinates only capabilities actually available and authorized in the host.
+- Optional local mail capabilities require your own mailbox and valid delegation. Full-thread reading, web application forms and background notifications still require host tools. No continuous monitoring starts automatically.
 - The repository's MIT license does not make third-party job data MIT-licensed. Retain source attribution and links when displaying results.
 
 ## Development and contributions
