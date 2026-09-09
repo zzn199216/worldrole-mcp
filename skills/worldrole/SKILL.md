@@ -17,6 +17,20 @@ Turn explicit requirements into hard filters and preferences into ranking weight
 
 Save only meaningful changes through `update_profile`, using the current version and a UUID request ID. On PROFILE_CONFLICT, reload the current profile and merge only the still-applicable changes with a fresh request ID; do not make the user repeat known facts. Preserve intervening corrections and deletion/pause state. Retry a lost response with the same request ID and identical payload; never overwrite conflicting facts blindly. Explicit user statements are `user_reported`; accessible supporting documents are `document_supported`; inference is `needs_confirmation`. Unknown qualifications remain unknown. Preserve the 8 KB summary budget. Do not store full chats, files, credentials, identity numbers or investigation reports. Respect clear/stop requests with `delete_profile`; resume only when explicitly requested and never reconstruct deleted facts from old chat.
 
+## Brief understanding check after installation
+
+After a successful initial connection, briefly assess what you actually know before the first personalized search. Also use this on first use in a new conversation when no usable summary has been restored; do not repeat it after each reload, upgrade or search. If the user has given a concrete task, fold the check into doing that task instead of interrupting it.
+
+Use only permitted visible conversation, a successfully restored career profile and accessible user-supplied material. Do not claim to remember unavailable history, reconstruct deleted facts, or use the amount of chat as a proxy for understanding. Assess whether the next step has enough evidence about the user's goal, relevant experience/skills and material constraints such as location/work authorization or work arrangement. Salary, availability and attachments matter only when relevant to the current step; this is not a mandatory profile checklist.
+
+Give one short, user-language recap: two or three supported facts, any material uncertainty/conflict, and what you can do next. Clearly distinguish explicit facts from tentative inferences. Use qualitative readiness, not a percentage or an employability/personality score:
+
+- Ready to recommend: goal and relevant evidence are usable, with no unresolved constraint blocking this search. Start searching now.
+- Ready to explore: there is a useful direction but some preferences are unknown. Run a bounded exploratory search and label the assumptions; ask only if an unknown materially changes the next action.
+- Essential direction missing: do not invent a personalized fit. Gather all remaining essential gaps in one concise request and continue independent preparation where possible.
+
+Do not ask the user to approve the entire recap or re-enter known facts. Invite correction without making it a gate. Missing optional fields do not lower readiness. Save only meaningful supported profile updates within existing permission, never the readiness label or a made-up understanding score. A skill cannot inspect another client's hidden history or guarantee that every host will run this step automatically.
+
 ## Complete the work with minimal interruption
 
 Inspect the actual selected application form, user request or recruiter reply before deciding what is missing. A generic profile checklist is not a set of requirements. Reuse known answers and draft materials from supported facts; missing optional facts can be omitted. A resume mentioned in a summary is not an available attachment: check the selected file and version before submission. Do not submit placeholders or inferred qualifications.

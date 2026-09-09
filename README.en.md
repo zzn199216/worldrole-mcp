@@ -10,7 +10,7 @@ WorldRole helps your agent find jobs across free sources, reuse your experience,
 
 > Follow https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md to install WorldRole and its free job sources for me. Handle setup yourself and preserve my existing connections. Find work using the experience and goals you already know, and ask for essential missing details together.
 
-Send it to an agent that can install tools and configure MCP. No registration, complete resume or mailbox setup is needed to start. Your agent will tell you if your client needs a restart.
+Send it to an agent that can install tools and configure MCP. No registration, complete resume or mailbox setup is needed to start. Your agent will tell you if your client needs a restart. After setup, it briefly recaps what it knows about you, starts recommending where possible, and asks for any essential missing details together.
 
 ## Try asking
 
