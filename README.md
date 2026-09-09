@@ -1,10 +1,10 @@
 # WorldRole MCP
 
+**简体中文** | [English](README.en.md)
+
 **让 AI 帮你找工作、整理求职资料，必要缺项一次补齐。**
 
 免费连接 [WorldRole](https://worldrole.work) 的远程 MCP；需要更广覆盖时，可选接入本仓库的免费职位源 MCP，直接查询 Himalayas、Greenhouse、Ashby 和 Lever。
-
-English: [README.en.md](README.en.md)
 
 ## 直接开始，无需安装本地服务
 

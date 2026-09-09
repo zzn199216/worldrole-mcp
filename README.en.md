@@ -1,25 +1,82 @@
 # WorldRole MCP
 
-A free-to-access hosted job-search MCP plus an optional local companion for public job sources. [中文说明](README.md).
+[简体中文](README.md) | **English**
 
-Connect `https://mcp.worldrole.work/mcp` using Streamable HTTP. Guests need no API key. Follow [INSTALL.md](INSTALL.md) or https://worldrole.work/install.md. Account access and career summaries are also free subject to the service's current limits; your AI host/model may have separate costs.
+**Let your AI help you find work and organize your career profile. Fill in essential missing details together, instead of answering repeated questions.**
 
-The included [skill](skills/worldrole/SKILL.md) tells the agent to reuse known facts, do useful work first, and collect genuinely necessary missing information in one concise request. It does not grant email, upload or application permissions.
+Connect to the free [WorldRole](https://worldrole.work) hosted MCP. For broader coverage, optionally add this repository's local job-source MCP to query Himalayas, Greenhouse, Ashby and Lever directly.
 
-## Optional free-source MCP
+## Get started without a local server
 
-Python 3.11+ is required only for this companion:
+Give this request to an MCP-capable agent:
+
+> Install WorldRole following https://worldrole.work/install.md. Prefer free guest access and preserve my other connections and any existing key. Then help me find work using the goals and experience we have already discussed. Reuse known information and finish what you can yourself. Collect any remaining essential missing details into one request so I can provide them together.
+
+The remote endpoint is `https://mcp.worldrole.work/mcp`, using `Streamable HTTP`. Guests need no API key: omit Authorization entirely. A free account provides account quotas and a concise career summary. Free access is rate limited, not unlimited; check the limits returned by `boardwork_start`. Your agent or model provider may charge separately.
+
+See [examples/mcpServers.json](examples/mcpServers.json) for a common JSON configuration. Client formats vary: merge the WorldRole entry using your client's supported MCP settings rather than replacing the entire configuration. Detailed agent installation instructions are in [INSTALL.md](INSTALL.md) (Chinese).
+
+## What it helps with
+
+- Find and compare sourced opportunities while retaining location, work authorization and salary restrictions.
+- When the user allows memory, build a concise career profile from the current conversation and supplied materials, reusing known facts.
+- Prepare what can be completed first, then ask for the remaining essential details together.
+- Guide the agent through checking actual job pages before applying, and stage-appropriate verification when recruiter messages or offers arrive.
+- Continue work using tools available in the host and within the user's existing authorization.
+
+The hosted WorldRole MCP provides eight tools: `boardwork_start`, `search_jobs`, `get_jobs`, `get_company`, `search_companies`, `get_profile`, `update_profile`, and `delete_profile`. **The connected server's tools/list is authoritative.**
+
+This repository contains client connection instructions, an [agent skill](skills/worldrole/SKILL.md), and independent adapters for free public sources. It does not include or start WorldRole's hosted account service, background collector or job database.
+
+## Optional: add other free job sources
+
+The primary WorldRole connection does not require Python. Install the local companion only if you want additional sources. It requires Python 3.11+:
 
 ```sh
+git clone https://github.com/zzn199216/worldrole-mcp.git
+cd worldrole-mcp
 python -m venv .venv
-# Windows: .venv\Scripts\python.exe -m pip install .
-.venv/bin/python -m pip install .
 ```
 
-Use the absolute path to `.venv/bin/worldrole-free-sources` (Windows: `.venv\Scripts\worldrole-free-sources.exe`) as a stdio MCP command. See [the two-connection example](examples/with-free-sources.json). The package is installed from this repository; no PyPI publication is implied.
+Windows PowerShell:
 
-Tools: `search_free_jobs` searches Himalayas; `list_free_company_jobs` reads known Greenhouse, Ashby and Lever boards. All are public read-only GET requests without keys. Preserve provider attribution; remote does not mean worldwide eligibility. [Sources, pagination and usage limits](docs/SOURCES.md).
+```powershell
+.venv\Scripts\python.exe -m pip install .
+.venv\Scripts\worldrole-free-sources.exe
+```
 
-This repository does not include the hosted backend, production databases, account service, email sending, application submission or background notifications. Private keys and resumes must never enter this repository.
+macOS / Linux:
 
-Tests: `python -m unittest discover -s tests -v`. MIT license covers our original code/skill, not third-party job data.
+```sh
+.venv/bin/python -m pip install .
+.venv/bin/worldrole-free-sources
+```
+
+The last command starts a stdio MCP process. Waiting for client protocol input is normal; usually your MCP client starts it, so you do not need to keep a separate terminal open.
+
+In [examples/with-free-sources.json](examples/with-free-sources.json), replace the placeholder with the executable's **absolute path**, then merge the entries using your client's configuration format. Keep the remote `worldrole` connection and add the local `worldrole-free-sources` connection.
+
+| Companion tool | Purpose | API key required? |
+|---|---|---|
+| `search_free_jobs` | Search Himalayas using public job keywords, with optional country and page | No |
+| `list_free_company_jobs` | Read a known company's Greenhouse, Ashby or Lever board | No |
+
+For example: “If WorldRole's results are insufficient, try the free sources for remote Python roles. Do not use my resume content as search keywords.”
+
+Each source has its own rate limits, refresh schedule and usage requirements. ATS queries require a board ID obtained from a company's careers page; they are not web-wide keyword searches. Do not automatically poll every source. See [sources and pagination](docs/SOURCES.md).
+
+## Privacy and capability boundaries
+
+- Guest searches do not require an account; cloud career profiles require a personal key. Store it only in private client settings, never on GitHub.
+- The local companion makes public GET requests only. It does not store profiles, resumes or a query database. Search keywords and board IDs are sent to the selected provider.
+- Applicant eligibility, employer identity and current vacancy status still need verification. “Remote” does not mean applicants worldwide are eligible.
+- No email sending or receiving, automatic application submission, background follow-up or notification executor is included. The skill coordinates only capabilities actually available and authorized in the host.
+- The repository's MIT license does not make third-party job data MIT-licensed. Retain source attribution and links when displaying results.
+
+## Development and contributions
+
+After installation, run `python -m unittest discover -s tests -v`. Tests use mocked source data and verify the actual local stdio MCP protocol without paid services.
+
+Use Issues to report installation problems, broken public sources or adapter suggestions. Do not upload personal resumes, emails, credentials or private server logs. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Original code and the skill are available under the [MIT License](LICENSE).
