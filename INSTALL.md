@@ -4,7 +4,9 @@ WorldRole 帮你寻找跨境工作，在聊天中了解你的求职方向，并�
 
 ## 给负责安装的 Agent
 
-这是通用的 Agent 安装包，包含标准 `SKILL.md`、参考流程和 MCP 连接描述；不是某个客户端专用的可执行程序或原生插件。安装只需你已有的文件与配置能力，无需安装 Python、Node 或本地 WorldRole 服务。
+这是通用的 Agent 安装包，包含标准 `SKILL.md`、参考流程和 MCP 连接描述；不是某个客户端专用的可执行程序或原生插件。仅安装远程 WorldRole 连接只需你已有的文件与配置能力，无需安装 Python、Node 或本地 WorldRole 服务。
+
+用户同时要求免费外部来源或本地申请工具时，继续按 [免费源 Agent 安装指南](INSTALL_FREE_SOURCES.md)完成本地 companion 的环境准备、安装和配置；不要把操作步骤丢给用户。两者都需要时，最后安装本仓库配套的技能，避免旧云端安装包覆盖较新的本地申请流程。只安装远程连接时，无需本地 companion。
 
 1. 识别当前客户端和版本，检查其 MCP、Agent Skills 支持及实际配置位置。按当前客户端的正式配置方式安装；不要猜路径或覆盖整个配置文件。用户只说“安装 WorldRole”时，默认游客；用户已选注册或已有有效个人密钥时，保留该选择。
 2. 获取 https://worldrole.work/downloads/worldrole-bundle.json ，下载其中的 HTTPS 安装包，并核对 SHA256。这个清单是 WorldRole 的包描述，不是所有客户端自动识别的插件格式。解压前检查成员路径不能越界，不执行压缩包内任意程序。包只有文本文件。

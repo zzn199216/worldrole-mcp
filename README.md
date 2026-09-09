@@ -30,6 +30,12 @@ WorldRole 云端提供 8 个工具：`boardwork_start`、`search_jobs`、`get_jo
 
 ## 可选：添加其他免费职位源
 
+**把下面这句话发给 Agent，让它完成安装：**
+
+> 请读取 https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md 并帮我安装 WorldRole 免费职位源和配套技能。环境检查、依赖安装和配置合并请你完成，保留我的其他连接、有效密钥和本地修改。使用免费来源即可，不必配置邮箱或要求我注册；验证后直接根据你已知的求职目标开始找工作。
+
+有本地安装及 MCP 配置能力的 Agent 可以按[安装指南](INSTALL_FREE_SOURCES.md)完成这些步骤，你不必手动改 JSON。部分客户端仍需最后重启或启用连接；只有聊天能力的 Agent 无法直接安装。下面的命令供手动安装时使用。
+
 主 WorldRole 连接不需要 Python。想启用额外来源或本地申请工作流时，安装以下本地补充 MCP（Python 3.11+）：
 
 ```sh

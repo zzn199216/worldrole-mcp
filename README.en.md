@@ -30,6 +30,12 @@ This repository contains client connection instructions, an [agent skill](skills
 
 ## Optional: add other free job sources
 
+**Give your agent this request to handle installation:**
+
+> Read https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md and install WorldRole's free job sources and matching skill for me. Handle environment checks, dependencies and configuration merging yourself. Preserve my other connections, valid keys and local changes. Use free sources; do not require registration or mailbox setup. Verify the connection, then start searching from the career goals you already know.
+
+An agent with local installation and MCP configuration tools can follow the [installation guide](INSTALL_FREE_SOURCES.md); you do not need to edit JSON yourself. Some clients still require a final restart or enabling the connection. A chat-only agent cannot install local software. The commands below are for manual installation.
+
 The primary WorldRole connection does not require Python. Install the local companion if you want additional sources or the local application workflow. It requires Python 3.11+:
 
 ```sh

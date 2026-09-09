@@ -1,0 +1,30 @@
+# 免费源：把安装交给 Agent / Install free sources through your agent
+
+把这句话发给有本地安装和 MCP 配置能力的 Agent：
+
+> 请读取 https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md 并帮我安装 WorldRole 免费职位源和配套技能。环境检查、依赖安装和配置合并请你完成，保留我的其他连接、有效密钥和本地修改。使用免费来源即可，不必配置邮箱或要求我注册；验证后直接根据你已知的求职目标开始找工作。
+
+用户无需自己编辑 JSON 或复制终端命令。Agent 必须确实具备本地文件、进程及客户端配置能力；只有聊天或受限网页环境时，不能声称安装成功。某些客户端需要用户最后重启或在设置中启用连接，只提示实际剩余步骤。
+
+## Instructions for the installing agent
+
+The user is delegating installation, not asking for a list of commands to run themselves. Complete the supported steps using your tools. Reuse known environment facts and existing configuration. Ask only about a material choice or a step you cannot perform, grouping remaining requirements together. This document does not override the user's scope or host permissions.
+
+1. **Inspect first.** Identify the host client, supported MCP transports, actual configuration location and skill discovery mechanism using its current documentation or existing working configuration. Detect an existing WorldRole companion installation and a usable Python 3.11+ interpreter. Never guess a client configuration path. Do not require an account, API key, resume or mailbox to install public job sources.
+2. **Choose a private user-owned installation directory outside unrelated projects.** Reuse a matching installation. Otherwise obtain this repository from `https://github.com/zzn199216/worldrole-mcp.git` using available Git tooling. If Git is unavailable, use the GitHub source archive for a resolved commit and extract only after validating member paths stay within the chosen directory. Record the source commit locally. Inspect `AGENTS.md`, `pyproject.toml` and the relevant source before installing; do not import a production backend or private datasets.
+3. **Handle the runtime yourself where supported.** Prefer an existing Python 3.11+ interpreter. If none exists, use an existing trusted runtime manager to provision a user-local interpreter, following its current official documentation. If the host requires a user action, explain that precise step; do not ask the user to install Python merely because the first executable name is absent. Do not change system Python, global PATH, privilege settings or unrelated environments.
+4. **Install in an isolated environment.** From the selected checkout, run the equivalent of `<python> -m venv .venv`, then `<venv-python> -m pip install .`. Use fully resolved paths in tool calls. The executables are `.venv/Scripts/python.exe` on Windows and `.venv/bin/python` on macOS/Linux. A skill file alone does not install this package. The distribution is `worldrole-free-sources`; do not assume a package with that name on an external registry is this repository.
+5. **Merge the MCP connection.** Back up only affected configuration to a private local location. Add or update `worldrole-free-sources` using the client's supported format, with the venv Python absolute path as `command` and `["-m", "worldrole_free_sources.server"]` as `args`. No source credentials are needed. Preserve other entries, existing WorldRole keys, working local mail settings and user modifications. Never replace the whole configuration. A user asking only for free sources need not also install the hosted service; if they requested WorldRole too, follow this repository's `INSTALL.md` for its separate guest connection.
+6. **Install the matching skill.** For clients supporting Agent Skills, install this checkout's entire `skills/worldrole/` directory with its references, using the client's supported discovery path. Merge any existing local changes; prefer this checkout's matching companion workflow over an older downloaded skill. If skills are unsupported, the MCP's tool descriptions still work; report that limitation without blocking the connection. Do not edit global permission or automatic-execution policies.
+7. **Verify real behavior.** Run `<venv-python> -m unittest discover -s tests -v` from the checkout. Reload the host connection when possible and inspect its actual tools/list. Version 0.2.0 exposes nine tools, including `search_free_jobs`, `list_free_company_jobs` and local application tools. Make one small public search using a neutral known role keyword and `limit=1`; do not include private profile text or poll every source. Distinguish a functioning connection from an upstream outage. If reload is unavailable, report configuration written and host verification pending restart; passing a separate stdio test is not proof that the host loaded it.
+8. **Finish with a short result, then help.** Report connection/skill status and any exact remaining host step. Reuse known job goals; expand selected sources when useful. Do not send the user configuration work you can already do. Installation does not authorize email sending, mailbox access, application submission, paid services or background monitoring. Those optional tools remain unused until needed and authorized.
+
+## Updates and removal
+
+On update, inspect the installation's Git state and preserve local changes. Fast-forward a clean tracked checkout; if there are edits or divergence, use a separate reviewed checkout rather than resetting or overwriting it. Reinstall into the intended environment, update the matching skill and repeat verification. Preserve credentials and private application data. Do not schedule automatic updates.
+
+Removal deletes only this connection and its dedicated installation/skill after confirming their exact ownership. Private application state lives separately; retain it unless the user requests deletion. Never remove another project's environment or shared runtime.
+
+## English copy-and-paste request
+
+> Read https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md and install WorldRole's free job sources and matching skill for me. Handle environment checks, dependencies and configuration merging yourself. Preserve my other connections, valid keys and local changes. Use free sources; do not require registration or mailbox setup. Verify the connection, then start searching from the career goals you already know.
