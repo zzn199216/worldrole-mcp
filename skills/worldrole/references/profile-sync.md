@@ -22,7 +22,11 @@ Request template, adapted to the user's language:
 
 ## Save meaningful changes
 
-Outside handoff, batch durable additions at a substantial correction, task milestone or natural summary; no timer, idle polling or per-message saves. During handoff use the stopping rule above. No meaningful change means no write.
+Apply an improvement gate before any routine save: would this change materially improve the next client's role matching, assessment of personal contribution, preparation of usable materials, or next action? Examples that pass are a representative contribution/result previously missing, an actionable change in location/work permission/language/pay/availability, or several complementary facts that make a previously vague capability understandable. More words, a paraphrase, a score change, a minor isolated detail, or simply reaching a turn/milestone/end is not enough.
+
+Accumulate small additions in current client context. At a natural checkpoint, save one compiled batch only if the gate passes; otherwise do not call update_profile or poll get_profile just to synchronize. Evaluate by decision value, not number of fields or percentage growth: one short correction to a hard constraint can be important. Explicit user requests to save, correct, delete or pause take precedence; do not delay them for a batch threshold. Unchanged values still need no write.
+
+During handoff, evaluate the gate at its stopping condition, not after each answer. Do not keep small changes in a server queue or promise they will survive client context loss. When asked about unsaved progress, distinguish local draft from verified cloud state. No timer, idle polling or per-message saves.
 
 Before saving, re-read the latest profile and reconcile concurrent edits/deletions. Use [profile-compiler.md](profile-compiler.md) for evidence and size rules. Only retain key career facts, conditions, material descriptions and next steps; no scores, chats, originals, contact details, credentials or correspondence.
 
