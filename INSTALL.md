@@ -1,28 +1,24 @@
-# 安装 WorldRole：把这份说明交给你的 AI
+# 安装 WorldRole
 
-WorldRole 帮你寻找跨境工作，在聊天中了解你的求职方向，并在你准备投递、试做或签约时指导 AI 核验机会。默认游客可直接用；注册后仍免费，可使用更多信息和精简云端档案。
+把本说明交给负责安装的 AI。远程 MCP + Skill 包不需要本地 Python 或 Node；游客可直接使用，注册后可保存精简职业档案。
 
-## 给负责安装的 Agent
+## 安装与验证
 
-这是通用的 Agent 安装包，包含标准 `SKILL.md`、参考流程和 MCP 连接描述；不是某个客户端专用的可执行程序或原生插件。仅安装远程 WorldRole 连接只需你已有的文件与配置能力，无需安装 Python、Node 或本地 WorldRole 服务。
+1. 检查当前客户端的 MCP、Skill 支持和真实配置位置。只修改 WorldRole，保留其他配置、权限、有效密钥和本地修改；为受影响配置留私有备份。
+2. 读取 https://worldrole.work/downloads/worldrole-bundle.json ，下载 HTTPS 包并核对 SHA256。检查解压路径不能越界。包是通用文本文件，不是任意客户端都能自动识别的原生插件。
+3. 添加或复用 `worldrole`：地址 `https://mcp.worldrole.work/mcp`，传输 `Streamable HTTP`。游客省略 Authorization。账号用户可在 https://mcp.worldrole.work/account 生成密钥，私下配置 `Authorization: Bearer <key>`；支持 OAuth 的客户端也可申请 `boardwork:read profile:manage`。保留已有效的连接，不重复注册或切回游客。密钥不进入回复、日志、公开仓库或 URL。
+4. 支持 Skill 时，安装完整 `skills/worldrole/`，保留相对引用。已有修改先比较合并。不支持 Skill 时，通过 `boardwork_start` 的流程及 https://worldrole.work/guides/ 继续使用，不把一次读取冒充持久安装。仅支持 stdio 时按该客户端已支持的桥接方法处理，不把 HTTPS 当命令或猜测依赖。
+5. 重载连接，实际读取工具列表、调用 `boardwork_start` 和 `search_jobs(count=1)`。后者仅验证连通，不是个性化推荐。确认 Skill 是否被发现；无法重载时说明待完成步骤，不虚报成功。报告 MCP、Skill、客户端搜索能力的实际状态。
+6. 进入 Skill 的首次使用流程：恢复已有档案，简短评估当前了解，直接开始有用的工作。了解评估、网页 AI 交接、档案合并与机会核验由对应指南维护，不在安装时重复问卷。安装不授权投递、发信或付费。
 
-用户同时要求免费外部来源或本地申请工具时，继续按 [免费源 Agent 安装指南](INSTALL_FREE_SOURCES.md)完成本地 companion 的环境准备、安装和配置；不要把操作步骤丢给用户。两者都需要时，最后安装本仓库配套的技能，避免旧云端安装包覆盖较新的本地申请流程。只安装远程连接时，无需本地 companion。
+## 网页 AI 与账号接续
 
-1. 识别当前客户端和版本，检查其 MCP、Agent Skills 支持及实际配置位置。按当前客户端的正式配置方式安装；不要猜路径或覆盖整个配置文件。用户只说“安装 WorldRole”时，默认游客；用户已选注册或已有有效个人密钥时，保留该选择。
-2. 获取 https://worldrole.work/downloads/worldrole-bundle.json ，下载其中的 HTTPS 安装包，并核对 SHA256。这个清单是 WorldRole 的包描述，不是所有客户端自动识别的插件格式。解压前检查成员路径不能越界，不执行压缩包内任意程序。包只有文本文件。
-3. MCP 名称 `worldrole`，地址 `https://mcp.worldrole.work/mcp`，传输 `Streamable HTTP`。游客完全省略 Authorization。保留其他 MCP 和现有 WorldRole 密钥；已有相同连接就复用。客户端只支持 stdio 时，不要把 HTTPS 地址当成命令：查看该客户端支持的桥接方式，说明尚缺的能力；不要无依据引入一个 npm 包。
-4. 支持 Agent Skills：将包内 `skills/worldrole/` 完整安装到该客户端可发现的用户技能目录，保留 references 相对路径。修改前保存仅受影响配置的本地私有备份；相同版本不重复安装。有同名但内容不同的技能时先检查并合并本地修改，不能直接覆盖。不要修改其他 skill、全局指令、权限或自动执行策略。
-5. 不支持技能文件：MCP 仍可用。通过 `boardwork_start` 获取流程，需要核验时读取资源 `worldrole://guides/verification` 或 prompt `worldrole_verify`。如果资源和 prompt 也不支持，读取 https://worldrole.work/guides/verification.md 。明确告诉用户是否具备持久化 skill，不把一次读取冒充安装完成。
-6. 用户需要跨设备或无长期记忆的 Agent 延续求职资料时，再介绍可选账号。支持 OAuth 的客户端优先通过 `https://mcp.worldrole.work/mcp` 发起连接，申请 `boardwork:read profile:manage`，让用户在 WorldRole 页面注册/登录并确认职业摘要访问。旧的只读授权不会自动扩大；缺少权限时重新授权即可，不要求重复填写已知经历。客户端只支持个人密钥时，用户可从 https://mcp.worldrole.work/account 生成密钥，并在客户端安全输入或私有配置中填写 `Authorization: Bearer <个人密钥>`。不在聊天、截图、网址或日志展示密钥，不把密钥放进共享项目。已有有效连接直接复用。登录 WorldRole 网站本身不会自动连接另一个网页 AI；无法接入 MCP 的客户端可使用账号页导出的摘要，但不能自动回写。详见 [云端职业摘要](docs/CLOUD_PROFILE.md)。
-7. 重载该连接（必要时告知需重启客户端），实际读取工具列表、调用 `boardwork_start`，再调用 `search_jobs(count=1)`。应能看到 8 个工具，普通客户端仍可用；支持的客户端还可看到 1 个 prompt 和 1 个指南资源。确认 skill 已被客户端发现，不只确认文件存在。若当前环境不能重载，说明配置已写入、连接验证待重启，而不是声称全部成功。
-8. 简短报告：MCP 是否连通、skill 是否已安装/可发现、搜索浏览能力是否可用。首次连接成功后，先恢复已获授权的职业摘要，结合当前可见对话和用户提供的材料，按本仓库技能的[双评分指引](skills/worldrole/references/understanding-scores.md)展示“职业能力了解程度”和“求职资料掌握程度”两个独立的 0～10 整数分，各附一句事实依据与接下来能做的事。完全没有可用信息时可以都打 0；这是 Agent 当前的了解程度，不是评价用户能力。明确区分知道资料存在、了解内容和版本、原文件当前可用。已有保存授权时整理重要事实到云端并核实成功，否则只在有帮助时轻量提示一次可选保存；不保存这些临时自评分数。不要求用户逐项确认或为提高分数补齐材料，能继续就直接开始，只有影响下一步的必要缺项才集中问一次。首次展示，之后仅在用户询问或重要信息明显变化时更新，不因普通重连重复评估。缺少搜索能力不阻止查询数据库，但不能声称实时核验过雇主。安装没有授权代投递、联系雇主、发送私人材料或付费。
+无法接入 MCP 时，使用 https://mcp.worldrole.work/onboarding ：复制包含已有档案的整理提示词，或生成只读临时链接；将 AI 的 JSON 粘回页面预览、确认保存。输出 JSON 不代表自动回写。不想注册可继续在当前对话工作。
 
-## 配置描述
+转移到新 Agent 时，按 [交接与同步](https://worldrole.work/guides/profile-sync.md) 定向补齐重要缺口，由接收端整理后保存；不追求两端评分相同。编写摘要按 [档案整理](https://worldrole.work/guides/profile-compiler.md)，首次评估按 [了解度](https://worldrole.work/guides/understanding-scores.md)，投递前按 [核验](https://worldrole.work/guides/verification.md)。
 
-安装包的 `mcp.json` 只描述连接能力。常见 `mcpServers` JSON 示例见 `examples/mcpServers.json`；它不是对所有客户端通用的配置文件。TOML 或其他格式请使用客户端自己的 MCP 配置能力，将同一个地址正确映射进去。客户端已连接其他服务器时只合并 worldrole 条目。
+## 更新、移除与可选扩展
 
-## 更新和移除
+更新只替换必要的 WorldRole 文件，保留密钥及本地修改；读取版本不代表授权后台更新。移除只删除 WorldRole 连接和对应 Skill，不自动删除云端档案；用户要求清空时使用 `delete_profile`。
 
-更新时读取清单版本，保留有效密钥和本地修改，只更新 WorldRole 技能文件及必要连接字段。检查清单不会自动授权后台更新。MCP 返回当前流程，通常不需要每次更新都重新安装 skill。
-
-移除时仅删除此次安装的 worldrole MCP 条目和对应技能；保留其他配置。移除连接不删除云端档案；用户希望清空档案时，先通过已连接 MCP 明确执行 `delete_profile`。不要上传本地安装备份。
+需要免费外部来源或本地申请工具时，另按 https://github.com/zzn199216/worldrole-mcp/blob/main/INSTALL_FREE_SOURCES.md 安装可选 companion；它需要 Python，默认不装。GitHub 配套 Skill 包含扩展流程，不用远程精简包覆盖这些流程。客户端配置示例不能当成所有客户端通用的文件格式。排错：https://worldrole.work/setup.md 。

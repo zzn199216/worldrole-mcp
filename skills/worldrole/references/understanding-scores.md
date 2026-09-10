@@ -11,9 +11,11 @@ Use two independent integer scores, 0 through 10 inclusive. They are approximate
 | 3–4 | Main skills and some work/project history, with few concrete examples. |
 | 5–6 | Concrete examples explain what the user did; individual contribution, depth or results still have important gaps. |
 | 7–8 | Relevant examples make the user's own contribution, problem-solving approach, results and suitable work reasonably clear. |
-| 9–10 | Several detailed, consistent examples support a clear understanding of depth, transferable capabilities and limits for the current career direction. Material uncertainties have been addressed. This is still not independent verification of every claim. |
+| 9–10 | Several detailed, consistent examples support a clear understanding of depth, transferable capabilities and limits for the current career direction. Material unknowns and their implications for the current direction are explicitly understood; not every unknown needs resolving. This is still not independent verification of every claim. |
 
 Choose within a band according to how complete and consistent the relevant evidence is. Separate explicit user statements, accessible documentary support and tentative inference. Job titles, long conversations or repeated claims alone do not justify high scores. Career preferences belong in the recap but are not evidence of professional competence. Do not demand years of experience, salary or formal credentials that are irrelevant to the user's goal.
+
+Career understanding and independent verification are separate. Detailed user-reported contributions and outcomes may justify strong understanding without external proof; retain their provenance and evidence limits. Do not deduct career-understanding points solely for missing third-party audits, payslips, public GitHub or a resume file. Deduct for missing relevant detail, ambiguous personal contribution or unresolved contradictions instead. Knowing an important boundary is informative, not automatically a deficiency. Never restore a predecessor's score or use decimal precision to imply measurement; assess what the current summary actually conveys. Read profile-compiler.md when compression has reduced contributions to keywords.
 
 ## 2. Application-material knowledge / 求职资料掌握程度
 
@@ -36,7 +38,7 @@ Show the scores on first use after setup or in a new agent context. If already s
 
 Restore permitted cloud memory before scoring. If retrieval fails, explain that the assessment is provisional and based only on visible information. Zero reflects no usable evidence available to this agent, not a claim that no cloud records exist. Never fill gaps from unavailable chats, deleted memory or private files the user has not authorized.
 
-When substantial supported facts are already known, prepare a concise cloud summary and save meaningful changes if the user has authorized memory. Reuse that permission rather than asking again for each field. If memory is not authorized/connected, mention optional account continuity once only when useful and keep working. Verify write success; a proposed summary is not a saved summary. Do not store the scores themselves in the career profile or invent new profile fields. Preserve the existing 8 KB limit, version conflict handling and pause/deletion controls.
+For saving and transfer timing follow [profile-sync.md](profile-sync.md). Scores are transient and never saved. During an active handoff, accumulate evidence until its stopping condition rather than saving on every assessment.
 
 ## Compact examples — illustrative, never assumed facts
 
