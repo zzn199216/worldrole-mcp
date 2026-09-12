@@ -2,29 +2,34 @@
 
 [简体中文](README.md) | **English**
 
-**Tell your AI what work you want. Let it handle as much of the rest as it can.**
+**Find remote jobs worldwide or overseas roles offering visa sponsorship. Let AI help from search and match scoring through application.**
 
-WorldRole helps your agent find jobs across free sources, reuse your experience, prepare applications, and assist with authorized emails, follow-ups and company replies. It brings you the genuinely missing details and decisions that need your input.
+WorldRole is a free job-search MCP and agent workflow. It connects multiple job sources, your career context and application steps so your AI can identify worthwhile opportunities, prepare materials, assist with applications and follow up on replies.
 
-## Copy this to get started
+## How far can your AI take you?
 
-> Follow https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md to install WorldRole and its free job sources for me. Handle setup yourself and preserve my existing connections. Find work using the experience and goals you already know, and ask for essential missing details together.
+| Stage | What you get |
+|---|---|
+| **Discover opportunities** | Search multiple sources for remote, overseas and visa-sponsorship opportunities, with original listing links |
+| **Assess and score fit** | Evaluate matches against your experience, skills and preferences, with reasons, gaps and conditions to verify |
+| **Prepare applications** | Reuse known experience and materials to draft and tailor letters and application content; collect essential missing details together |
+| **Apply and follow up** | Use a connected mailbox or available tools for authorized sending, application records, follow-ups and routine replies; bring interviews, salary discussions and personal decisions to you |
 
-Send it to an agent that can install tools and configure MCP. No registration, complete resume or mailbox setup is needed to start. Your agent will tell you if your client needs a restart. After setup, it gives two 0–10 scores for its understanding of your career capabilities and its knowledge of your application materials, each with a short reason. These rate what the agent knows, not your ability. Even at zero, it can start exploring and learn as you go.
+Scores help prioritize applications; they are not hiring probabilities. Remote location eligibility and visa sponsorship must be checked against each job's actual requirements.
 
-## Try asking
+## Copy one request to get started
 
-- **Find work:** “Find remote roles that fit my experience, prioritizing jobs I can do from China.”
-- **Prepare applications:** “These roles look promising. Prepare my application letters, reuse my materials, and ask for anything essential together.”
-- **Handle replies:** “Handle routine document requests within my authorization. Bring interviews, salary discussions and personal decisions to me with context and a suggested reply.”
+> Follow https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md to install WorldRole and its free job sources for me. Handle setup and preserve my existing connections. Find remote jobs worldwide or overseas roles offering visa sponsorship that fit my experience and preferences, assess the matches and help prepare applications. Reuse known information and ask for essential missing details together.
 
-Reuse an existing mailbox connection. Ongoing inbox checks require your agent to configure a running scheduled task; otherwise checks resume the next time you use it.
+Send it to an agent that can install tools and configure MCP. No registration, complete resume or mailbox setup is needed to start. For clients that only support web connections, see the [connection guide](docs/CLOUD_PROFILE.md).
 
-## Which free sources can I use?
+## More free sources, less repeated setup
 
-WorldRole, Himalayas, Jobicy, Arbeitnow, and company career pages on Greenhouse, Ashby and Lever. Your agent selects sources as needed, removes duplicate links and keeps attribution. You do not need to configure each source separately.
+Sources include WorldRole, Himalayas, Jobicy, Arbeitnow, and company career pages on Greenhouse, Ashby and Lever. Your agent selects sources as needed, removes duplicate links and preserves attribution. You do not need to configure each source separately. Coverage and free quotas vary; your AI client or model may charge separately.
 
-Free sources have their own limits and coverage. Your AI client or model may charge separately. Sending email requires your mailbox and authorization. Application records stay on your computer; resumes and correspondence are not sent to job sources as search content.
+On first use, your agent gives two **0–10 scores** for its understanding of your career capabilities and its knowledge of your application materials, each with a short reason. These are separate from job-match scores and do not rate your ability. Even at zero, it can start exploring and learn as you go.
+
+Reuse an existing mailbox connection. Actual email and form actions depend on available tools and authorization. Ongoing inbox checks require a running scheduled task; otherwise checks resume next time. Application records stay on your computer, and resumes and correspondence are not sent to job sources as search content.
 
 ---
 
@@ -32,8 +37,4 @@ Free sources have their own limits and coverage. Your AI client or model may cha
 
 Original code and skills use the [MIT License](LICENSE). Third-party job data retains its own terms.
 
-**Want to spend less time introducing yourself next time?** Important preferences can get lost or misunderstood in a long conversation, and switching computers or agents can mean starting again. If you use a web client, an agent without persistent memory, or several devices, you can [create a free WorldRole account or sign in](https://mcp.worldrole.work/join) and let your agent save a concise cloud summary of your career goals, preferences and key experience with your permission. Connect the same account on another device or agent to read that summary and continue your search.
-
-This is optional; you can keep using free job sources without it. Ask your agent to update or delete the summary whenever you like. It keeps important facts available for reference, rather than storing full conversations, resume attachments or emails.
-
-See [cloud career summaries](docs/CLOUD_PROFILE.md) for web connections and continuing without MCP.
+**Switch devices or agents and keep your career context.** If you use a web client, an agent without persistent memory, or want to repeat less background, optionally [create a free WorldRole account or sign in](https://mcp.worldrole.work/join). With your permission, your agent can save a cloud summary of your goals, preferences and key experience. Connect the same account to read, update or delete it. Registration is optional for starting a job search; the summary does not include full chats, resume attachments or emails. [About cloud career summaries](docs/CLOUD_PROFILE.md)
