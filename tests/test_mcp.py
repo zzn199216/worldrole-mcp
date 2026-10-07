@@ -15,7 +15,9 @@ class ProtocolTest(unittest.TestCase):
             params=StdioServerParameters(command=sys.executable,args=['-m','worldrole_free_sources.server'],env={'PYTHONPATH':str(Path(__file__).resolve().parents[1]/'src'),'WORLDROLE_DATA_DIR':temp.name})
             async with stdio_client(params) as (read,write):
                 async with ClientSession(read,write) as session:
-                    await session.initialize()
+                    initialized=await session.initialize()
+                    self.assertIn('without WorldRole registration',initialized.instructions)
+                    self.assertIn('do not spend hosted quotas',initialized.instructions)
                     listed=await session.list_tools()
                     names={t.name for t in listed.tools}
                     self.assertEqual(names,{'search_free_jobs','list_free_company_jobs','get_application_capabilities',

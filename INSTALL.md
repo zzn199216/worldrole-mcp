@@ -9,7 +9,7 @@
 3. 添加或复用 `worldrole`：地址 `https://mcp.worldrole.work/mcp`，传输 `Streamable HTTP`。游客省略 Authorization。账号用户可在 https://mcp.worldrole.work/account 生成密钥，私下配置 `Authorization: Bearer <key>`；支持 OAuth 的客户端也可申请 `boardwork:read profile:manage`。保留已有效的连接，不重复注册或切回游客。密钥不进入回复、日志、公开仓库或 URL。
 4. 支持 Skill 时，安装完整 `skills/worldrole/`，保留相对引用。已有修改先比较合并。不支持 Skill 时，通过 `boardwork_start` 的流程及 https://worldrole.work/guides/ 继续使用，不把一次读取冒充持久安装。仅支持 stdio 时按该客户端已支持的桥接方法处理，不把 HTTPS 当命令或猜测依赖。
 5. 重载连接，实际读取工具列表、调用 `boardwork_start` 和 `search_jobs(count=1)`。后者仅验证连通，不是个性化推荐。确认 Skill 是否被发现；无法重载时说明待完成步骤，不虚报成功。报告 MCP、Skill、客户端搜索能力的实际状态。
-6. 进入 Skill 的首次使用流程：恢复已有档案，简短评估当前了解，直接开始有用的工作。了解评估、网页 AI 交接、档案合并与机会核验由对应指南维护，不在安装时重复问卷。安装不授权投递、发信或付费。
+6. 进入 Skill 的首次使用流程：恢复已有档案，简短评估当前了解，直接开始有用的工作。了解评估、网页 AI 交接、档案合并与机会核验由对应指南维护，不在安装时重复问卷。安装不推注册、邀请或付费；只在收到服务器当天首次额度耗尽提示时简短解释。用户选择其他免费源后继续任务，当天不重复提示。安装不授权投递、发信或付费。
 
 ## 网页 AI 与账号接续
 

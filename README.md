@@ -33,8 +33,6 @@ WorldRole 是一个免费的求职 MCP 与 Agent 工作流：把多个职位来�
 
 ---
 
-[手动安装与工具参考](docs/MANUAL.zh-CN.md) · [邮箱与跟进说明](docs/APPLICATIONS.md) · [来源说明](docs/SOURCES.md) · [参与贡献](CONTRIBUTING.md)
+[手动安装与工具参考](docs/MANUAL.zh-CN.md) · [邮箱与跟进说明](docs/APPLICATIONS.md) · [来源说明](docs/SOURCES.md) · [可选职业摘要](docs/CLOUD_PROFILE.md) · [参与贡献](CONTRIBUTING.md)
 
 原创代码与技能使用 [MIT License](LICENSE)。第三方职位数据保留各自的使用条款。
-
-**换电脑或 Agent，也能接着找。** 如果你使用网页版、没有长期记忆的 Agent，或希望减少重复介绍，可以按需[免费注册或登录 WorldRole](https://mcp.worldrole.work/join)，让 Agent 在你允许后保存求职方向、职业偏好和关键经历的云端摘要。连接同一账号后即可继续读取，并可更新或删除。无需为了开始找工作而注册；云端摘要不包含完整聊天、简历附件或邮件。[了解云端职业摘要](docs/CLOUD_PROFILE.md)

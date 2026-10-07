@@ -33,8 +33,6 @@ Reuse an existing mailbox connection. Actual email and form actions depend on av
 
 ---
 
-[Manual setup and tools](docs/MANUAL.en.md) · [Mail and follow-ups](docs/APPLICATIONS.md) · [Source details](docs/SOURCES.md) · [Contributing](CONTRIBUTING.md)
+[Manual setup and tools](docs/MANUAL.en.md) · [Mail and follow-ups](docs/APPLICATIONS.md) · [Source details](docs/SOURCES.md) · [Optional career summaries](docs/CLOUD_PROFILE.md) · [Contributing](CONTRIBUTING.md)
 
 Original code and skills use the [MIT License](LICENSE). Third-party job data retains its own terms.
-
-**Switch devices or agents and keep your career context.** If you use a web client, an agent without persistent memory, or want to repeat less background, optionally [create a free WorldRole account or sign in](https://mcp.worldrole.work/join). With your permission, your agent can save a cloud summary of your goals, preferences and key experience. Connect the same account to read, update or delete it. Registration is optional for starting a job search; the summary does not include full chats, resume attachments or emails. [About cloud career summaries](docs/CLOUD_PROFILE.md)

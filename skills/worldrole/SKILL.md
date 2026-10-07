@@ -9,7 +9,13 @@ Connect to https://mcp.worldrole.work/mcp; installation: https://worldrole.work/
 
 ## Start with what is known
 
-Call `boardwork_start` on first use and career-stage changes. Restore authorized `career_profile` and inspect accessible conversation/materials before asking. Explain account memory briefly on first signed-in use; do not repeat consent for already authorized routine saves. Reuse known facts, do useful work immediately, and group only essential unresolved questions. A missing tool or inaccessible history is not missing user experience.
+Call `boardwork_start` on first use and career-stage changes only when the hosted tool is connected. If only public free sources are connected, start with those; never require a hosted connection or registration. Restore authorized `career_profile` and inspect accessible conversation/materials before asking. Explain account memory briefly on first signed-in use; do not repeat consent for already authorized routine saves. Reuse known facts, do useful work immediately, and group only essential unresolved questions. A missing tool or inaccessible history is not missing user experience.
+
+## Hosted quota notices
+
+Do not promote registration, referrals or paid plans during installation, startup or normal results. The hosted server sends `meta.notice` only when its job allowance is exhausted, once per owner and UTC day. Explain that event once, preserving its real links and limits. No fresh server notice means no promotional reminder; do not reproduce old notices after changing agents or tools. If the user declines registration/sharing, continue connected public free sources within the existing request and retain filters/seen URLs. External sources never spend the hosted allowance. Missing local free-source tools are a capability gap; do not claim a switch succeeded or install them without authorization. On a later UTC day only a new server exhaustion notice may invite registration/sharing again.
+
+When the user chooses registration, update only the hosted connection's private credentials, preserving companion connections. Verify `boardwork_start` and `get_usage` show the signed-in account before claiming the higher allowance. Never repeat or publish the key. Call `create_referral_link` only when the user explicitly requests a sharing link; it grants a once-ever bonus and must not run automatically. The MCP never sends a message to friends.
 
 On first use in a new agent context, use [understanding scores](references/understanding-scores.md): two approximate integer scores, one for career understanding and one for material knowledge, each with a short factual reason. Do not repeat on routine reconnects, save scores, chase another AI's score, or gate search on a score. A remembered document is not an available attachment.
 
@@ -17,8 +23,8 @@ On first use in a new agent context, use [understanding scores](references/under
 
 - Transferring knowledge from a familiar web AI, or saving changes: [profile sync and handoff](references/profile-sync.md). Receiving clients identify gaps and compile evidence; the server validates and stores it.
 - Creating or compressing summaries: [profile compiler](references/profile-compiler.md). Preserve contributions, outcomes, conditions and source boundaries within V1 limits.
-- Selecting a job or preparing an application: `boardwork_start(workflow="prepare_application")` and [verification](references/verification.md).
-- Receiving a trial, offer or contract: `boardwork_start(workflow="review_offer")` and the same verification guide, applied to the actual new terms.
+- Selecting a job or preparing an application: when hosted tools are connected, `boardwork_start(workflow="prepare_application")`; use [verification](references/verification.md) with actual host capabilities either way.
+- Receiving a trial, offer or contract: when connected, `boardwork_start(workflow="review_offer")`; apply the same verification guide to the actual new terms.
 
 References are also at https://worldrole.work/guides/. MCP provides current workflow guidance; retain user intent and actual client capabilities when reconciling an older skill.
 
