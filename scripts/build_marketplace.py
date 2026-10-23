@@ -88,6 +88,7 @@ def main():
         with zipfile.ZipFile(dest, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
             for name, content in sorted(files.items()):
                 info = zipfile.ZipInfo(name, date_time=(2026, 10, 24, 0, 0, 0))
+                info.create_system = 3  # Stable ZIP metadata across Windows and Linux.
                 info.compress_type = zipfile.ZIP_DEFLATED
                 archive.writestr(info, content)
         digest = hashlib.sha256(dest.read_bytes()).hexdigest()
@@ -99,3 +100,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
