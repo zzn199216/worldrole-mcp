@@ -12,6 +12,11 @@ def encoded(data):
     return (json.dumps(data, ensure_ascii=False, indent=2) + '\n').encode('utf-8')
 
 
+def public_bytes(path):
+    # The same release must have the same digest on Windows and Linux checkouts.
+    return path.read_bytes() if path.suffix == '.png' else path.read_text(encoding='utf-8').encode('utf-8')
+
+
 def generated_files():
     m = json.loads((ROOT / 'distribution/manifest.json').read_text(encoding='utf-8'))
     review = json.loads((ROOT / 'distribution/review-cases.json').read_text(encoding='utf-8'))
@@ -72,11 +77,11 @@ def main():
     if args.zip:
         # Explicit allowlist: no source backend, auth stores, local config, or logs.
         for name in ('LICENSE', 'README.md', 'README.en.md', 'INSTALL.md', 'INSTALL_FREE_SOURCES.md'):
-            files[name] = (ROOT / name).read_bytes()
+            files[name] = public_bytes(ROOT / name)
         for directory in ('skills', 'assets', 'docs'):
             for path in sorted((ROOT / directory).rglob('*')):
                 if path.is_file() and path.suffix in ('.md', '.svg', '.png', '.yaml'):
-                    files[path.relative_to(ROOT).as_posix()] = path.read_bytes()
+                    files[path.relative_to(ROOT).as_posix()] = public_bytes(path)
         version = json.loads(files['plugin.json'])['version']
         dest = ROOT / 'dist' / f'worldrole-plugin-{version}.zip'
         dest.parent.mkdir(exist_ok=True)
