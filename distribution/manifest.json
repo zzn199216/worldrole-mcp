@@ -1,0 +1,29 @@
+{
+  "name": "worldrole",
+  "version": "1.0.0",
+  "hostedVersion": "0.7.0",
+  "companionVersion": "0.2.0",
+  "description": "Free remote and overseas job discovery with source links, eligibility checks, and a career workflow for your agent.",
+  "endpoint": "https://mcp.worldrole.work/mcp",
+  "repository": "https://github.com/zzn199216/worldrole-mcp",
+  "homepage": "https://worldrole.work",
+  "author": {"name": "zzn199216", "url": "https://github.com/zzn199216"},
+  "license": "MIT",
+  "keywords": ["jobs", "careers", "remote-work", "visa-sponsorship", "mcp", "free"],
+  "interface": {
+    "displayName": "WorldRole",
+    "shortDescription": "Find remote and overseas jobs",
+    "longDescription": "Find remote and overseas jobs, inspect source evidence, and assess eligibility with your agent. Free to install and use: anonymous hosted searches need no account or payment, with a daily allowance of 20 distinct jobs per network; optional free accounts have 50 per day. Other request limits apply. The optional local public-source companion needs no WorldRole account and has no WorldRole hosted-job quota. External providers and AI clients have their own limits and pricing. Results are incomplete and may be stale; remote does not mean worldwide eligibility. The hosted MCP does not send applications or emails. Career-summary storage is optional and requires account authorization. No payment tools, paid subscription, or billing credentials are included.",
+    "developerName": "zzn199216",
+    "category": "Productivity",
+    "capabilities": ["Find jobs", "Review source evidence", "Compare eligibility"],
+    "websiteURL": "https://worldrole.work",
+    "supportURL": "https://github.com/zzn199216/worldrole-mcp/issues",
+    "privacyPolicyURL": "https://github.com/zzn199216/worldrole-mcp/blob/main/docs/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/zzn199216/worldrole-mcp/blob/main/docs/TERMS.md",
+    "defaultPrompt": ["Find remote jobs matching my experience.", "Help me check eligibility for an overseas job.", "Find jobs that explicitly mention visa sponsorship."],
+    "brandColor": "#0C3122",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg"
+  }
+}

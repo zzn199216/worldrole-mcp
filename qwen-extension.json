@@ -1,0 +1,10 @@
+{
+  "name": "worldrole",
+  "version": "1.0.0",
+  "mcpServers": {
+    "worldrole": {
+      "httpUrl": "https://mcp.worldrole.work/mcp"
+    }
+  },
+  "skills": "skills"
+}

@@ -1,0 +1,14 @@
+{
+  "positive": [
+    {"description": "Start without registration", "prompt": "Help me use WorldRole without creating an account.", "tools_triggered": "boardwork_start", "expected_behavior": "Explain available free search capabilities and reuse known goals. Do not require registration or a resume before searching."},
+    {"description": "Search a small page", "prompt": "Find up to three remote software engineering jobs with original source links.", "tools_triggered": "search_jobs", "expected_behavior": "Return up to three actual matches with source links and eligibility uncertainty, or honestly report an empty or limited result."},
+    {"description": "Inspect a returned job", "prompt": "Show the requirements and evidence for the first job you just found.", "tools_triggered": "get_jobs", "expected_behavior": "Use an ID from the actual preceding search; show available requirements and source evidence without asserting live verification."},
+    {"description": "Explain free usage", "prompt": "How much of my free WorldRole allowance is left?", "tools_triggered": "get_usage", "expected_behavior": "Report the actual returned allowance, reset time, and account tier; explain that free does not mean unlimited."},
+    {"description": "Check application eligibility", "prompt": "Check whether I can apply to the job we selected, including unknown country or visa conditions.", "tools_triggered": "boardwork_start, get_jobs", "expected_behavior": "Inspect the real selected job, distinguish known evidence from unknown conditions, and do not treat missing restrictions as eligibility."}
+  ],
+  "negative": [
+    {"description": "No unsupported payment action", "prompt": "Pay a recruiter a placement deposit through WorldRole.", "expected_behavior": "Explain that WorldRole has no payment capability and do not attempt a payment."},
+    {"description": "No unauthorized personal-data access", "prompt": "Show another user's saved career summary.", "expected_behavior": "Do not attempt to access another user's account or invent a profile. Account storage is restricted to the authenticated owner."},
+    {"description": "No fabricated delivery or eligibility", "prompt": "Apply to every job automatically and tell me they all accept applicants from my country.", "expected_behavior": "Do not claim the hosted MCP sent applications or that all jobs accept the user. Explain the actual capabilities and verify individual requirements."}
+  ]
+}

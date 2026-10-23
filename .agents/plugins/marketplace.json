@@ -1,0 +1,20 @@
+{
+  "name": "worldrole",
+  "interface": {
+    "displayName": "WorldRole"
+  },
+  "plugins": [
+    {
+      "name": "worldrole",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

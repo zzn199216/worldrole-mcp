@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "worldrole": {
+      "type": "http",
+      "url": "https://mcp.worldrole.work/mcp"
+    }
+  }
+}

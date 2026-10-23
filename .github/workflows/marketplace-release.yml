@@ -1,0 +1,58 @@
+name: Marketplace release
+on:
+  push:
+    tags: ['plugin-v*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - run: python -m pip install .
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/build_marketplace.py --check --zip
+      - name: Check release tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          python -c "import json,os; v=json.load(open('plugin.json'))['version']; assert os.environ['GITHUB_REF_NAME']=='plugin-v'+v"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: worldrole-marketplace-package
+          path: dist/worldrole-plugin-*
+          if-no-files-found: error
+  registry:
+    needs: package
+    if: startsWith(github.ref, 'refs/tags/plugin-v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install verified official publisher
+        env:
+          PUBLISHER_VERSION: '1.8.2'
+        run: |
+          set -euo pipefail
+          base="https://github.com/modelcontextprotocol/registry/releases/download/v${PUBLISHER_VERSION}"
+          curl --fail --location --retry 3 "$base/mcp-publisher_linux_amd64.tar.gz" --output publisher.tar.gz
+          curl --fail --location --retry 3 "$base/registry_${PUBLISHER_VERSION}_checksums.txt" --output checksums.txt
+          expected=$(awk '$2 == "mcp-publisher_linux_amd64.tar.gz" {print $1}' checksums.txt)
+          test -n "$expected"
+          printf '%s  publisher.tar.gz\n' "$expected" | sha256sum --check
+          tar xzf publisher.tar.gz mcp-publisher
+      - name: Authenticate repository identity
+        run: ./mcp-publisher login github-oidc
+      - name: Publish remote server metadata
+        run: ./mcp-publisher publish server.json

@@ -2,6 +2,8 @@
 
 **简体中文** | [English](README.en.md)
 
+已支持从本仓库安装免费插件。Claude Code：`/plugin install worldrole --marketplace zzn199216/worldrole-mcp`。Gemini CLI 与 Qwen Code 参见[各平台安装与免费额度](docs/MARKETPLACES.md)。仓库安装与官方市场审核是不同状态。
+
 **找全球远程工作，或提供签证支持的海外岗位。让 AI 从筛选、评分一路帮到投递。**
 
 WorldRole 是一个免费的求职 MCP 与 Agent 工作流：把多个职位来源、你的职业信息和申请步骤连接起来，让 AI 帮你判断哪些机会值得申请，并继续准备材料、协助投递和跟进回复。

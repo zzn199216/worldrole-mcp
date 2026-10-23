@@ -1,5 +1,7 @@
 # WorldRole MCP
 
+Install the free plugin from this repository with Claude Code: `/plugin install worldrole --marketplace zzn199216/worldrole-mcp`. See [marketplace installation and free limits](docs/MARKETPLACES.md) for Gemini CLI, Qwen Code, and other clients. Direct installation does not imply an approved official listing.
+
 [简体中文](README.md) | **English**
 
 **Find remote jobs worldwide or overseas roles offering visa sponsorship. Let AI help from search and match scoring through application.**

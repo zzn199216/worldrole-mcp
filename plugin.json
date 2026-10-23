@@ -1,0 +1,104 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "worldrole",
+  "version": "1.0.0",
+  "description": "Free remote and overseas job discovery with source links, eligibility checks, and a career workflow for your agent.",
+  "author": {
+    "name": "zzn199216",
+    "url": "https://github.com/zzn199216"
+  },
+  "homepage": "https://worldrole.work",
+  "repository": "https://github.com/zzn199216/worldrole-mcp",
+  "license": "MIT",
+  "keywords": [
+    "jobs",
+    "careers",
+    "remote-work",
+    "visa-sponsorship",
+    "mcp",
+    "free"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "WorldRole",
+        "shortDescription": "Find remote and overseas jobs",
+        "longDescription": "Find remote and overseas jobs, inspect source evidence, and assess eligibility with your agent. Free to install and use: anonymous hosted searches need no account or payment, with a daily allowance of 20 distinct jobs per network; optional free accounts have 50 per day. Other request limits apply. The optional local public-source companion needs no WorldRole account and has no WorldRole hosted-job quota. External providers and AI clients have their own limits and pricing. Results are incomplete and may be stale; remote does not mean worldwide eligibility. The hosted MCP does not send applications or emails. Career-summary storage is optional and requires account authorization. No payment tools, paid subscription, or billing credentials are included.",
+        "developerName": "zzn199216",
+        "category": "Productivity",
+        "capabilities": [
+          "Find jobs",
+          "Review source evidence",
+          "Compare eligibility"
+        ],
+        "websiteURL": "https://worldrole.work",
+        "supportURL": "https://github.com/zzn199216/worldrole-mcp/issues",
+        "privacyPolicyURL": "https://github.com/zzn199216/worldrole-mcp/blob/main/docs/PRIVACY.md",
+        "termsOfServiceURL": "https://github.com/zzn199216/worldrole-mcp/blob/main/docs/TERMS.md",
+        "defaultPrompt": [
+          "Find remote jobs matching my experience.",
+          "Help me check eligibility for an overseas job.",
+          "Find jobs that explicitly mention visa sponsorship."
+        ],
+        "brandColor": "#0C3122",
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Start without registration",
+              "prompt": "Help me use WorldRole without creating an account.",
+              "tools_triggered": "boardwork_start",
+              "expected_behavior": "Explain available free search capabilities and reuse known goals. Do not require registration or a resume before searching."
+            },
+            {
+              "description": "Search a small page",
+              "prompt": "Find up to three remote software engineering jobs with original source links.",
+              "tools_triggered": "search_jobs",
+              "expected_behavior": "Return up to three actual matches with source links and eligibility uncertainty, or honestly report an empty or limited result."
+            },
+            {
+              "description": "Inspect a returned job",
+              "prompt": "Show the requirements and evidence for the first job you just found.",
+              "tools_triggered": "get_jobs",
+              "expected_behavior": "Use an ID from the actual preceding search; show available requirements and source evidence without asserting live verification."
+            },
+            {
+              "description": "Explain free usage",
+              "prompt": "How much of my free WorldRole allowance is left?",
+              "tools_triggered": "get_usage",
+              "expected_behavior": "Report the actual returned allowance, reset time, and account tier; explain that free does not mean unlimited."
+            },
+            {
+              "description": "Check application eligibility",
+              "prompt": "Check whether I can apply to the job we selected, including unknown country or visa conditions.",
+              "tools_triggered": "boardwork_start, get_jobs",
+              "expected_behavior": "Inspect the real selected job, distinguish known evidence from unknown conditions, and do not treat missing restrictions as eligibility."
+            }
+          ],
+          "negative": [
+            {
+              "description": "No unsupported payment action",
+              "prompt": "Pay a recruiter a placement deposit through WorldRole.",
+              "expected_behavior": "Explain that WorldRole has no payment capability and do not attempt a payment."
+            },
+            {
+              "description": "No unauthorized personal-data access",
+              "prompt": "Show another user's saved career summary.",
+              "expected_behavior": "Do not attempt to access another user's account or invent a profile. Account storage is restricted to the authenticated owner."
+            },
+            {
+              "description": "No fabricated delivery or eligibility",
+              "prompt": "Apply to every job automatically and tell me they all accept applicants from my country.",
+              "expected_behavior": "Do not claim the hosted MCP sent applications or that all jobs accept the user. Explain the actual capabilities and verify individual requirements."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Free job discovery and career workflows. No checkout, payment tools, or billing credentials."
+      }
+    }
+  }
+}

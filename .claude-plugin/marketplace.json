@@ -1,0 +1,19 @@
+{
+  "name": "worldrole",
+  "owner": {
+    "name": "zzn199216",
+    "url": "https://github.com/zzn199216"
+  },
+  "metadata": {
+    "description": "Free remote and overseas job discovery with source links, eligibility checks, and a career workflow for your agent.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "worldrole",
+      "source": "./",
+      "version": "1.0.0",
+      "description": "Free remote and overseas job discovery with source links, eligibility checks, and a career workflow for your agent."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "worldrole",
+  "version": "1.0.0",
+  "description": "Free remote and overseas job discovery with source links, eligibility checks, and a career workflow for your agent.",
+  "author": {
+    "name": "zzn199216",
+    "url": "https://github.com/zzn199216"
+  },
+  "homepage": "https://worldrole.work",
+  "repository": "https://github.com/zzn199216/worldrole-mcp",
+  "license": "MIT",
+  "keywords": [
+    "jobs",
+    "careers",
+    "remote-work",
+    "visa-sponsorship",
+    "mcp",
+    "free"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "logo": "./assets/icon.svg"
+}

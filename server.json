@@ -1,0 +1,27 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.zzn199216/worldrole",
+  "title": "WorldRole",
+  "version": "1.0.0",
+  "description": "Free remote and overseas job search with sources and eligibility checks. Usage limits apply.",
+  "websiteUrl": "https://worldrole.work",
+  "repository": {
+    "url": "https://github.com/zzn199216/worldrole-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.worldrole.work/mcp"
+    }
+  ],
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/assets/icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    }
+  ]
+}
