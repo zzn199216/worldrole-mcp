@@ -18,6 +18,14 @@ These are direct repository installations. They do **not** imply that a vendor h
 
 For account features, use a client-supported private key or OAuth connection. Never put a real key in a shared project, public manifest, issue, or URL. Preserve an existing signed-in connection instead of replacing it with guest access.
 
+## Google Antigravity
+
+The standalone plugin directory is [`integrations/antigravity/worldrole`](../integrations/antigravity/worldrole). Clone this repository, then install that directory with `agy plugin install ./integrations/antigravity/worldrole`, or select it using the client's local-directory plugin installer. Do not install the repository root as an Antigravity plugin: its portable manifest serves other clients.
+
+This directory follows Google's [plugin format](https://antigravity.google/docs/plugins) and [MCP configuration](https://antigravity.google/docs/mcp): `plugin.json` identifies the plugin and `mcp_config.json` uses `serverUrl` with Streamable HTTP. No credentials, executable hooks, or payment configuration are bundled. Anonymous access permits 20 distinct hosted jobs per network per UTC day; optional free accounts permit 50, with additional request limits. AI-client charges are separate. The full hosted server exposes optional account features requiring authorization; it does not send applications or emails. See [privacy](PRIVACY.md), [terms](TERMS.md), and [review scenarios](../distribution/review-cases.json).
+
+The endpoint has passed MCP protocol checks. Antigravity in-client installation and execution have not yet been verified; an interest-form submission does not imply Marketplace approval.
+
 ## Versions and releases
 
 `distribution/manifest.json` is the source of marketplace metadata. Its version describes the distribution package; `hostedVersion` and `companionVersion` separately identify the service and local Python package. These are different release streams.
