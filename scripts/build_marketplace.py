@@ -76,7 +76,7 @@ def main():
         raise SystemExit('Regenerate marketplace metadata: ' + ', '.join(stale))
     if args.zip:
         # Explicit allowlist: no source backend, auth stores, local config, or logs.
-        for name in ('LICENSE', 'README.md', 'README.en.md', 'INSTALL.md', 'INSTALL_FREE_SOURCES.md'):
+        for name in ('LICENSE', 'README.md', 'README.en.md', 'README.zh-CN.md', 'INSTALL.md', 'INSTALL_FREE_SOURCES.md'):
             files[name] = public_bytes(ROOT / name)
         for directory in ('skills', 'assets', 'docs'):
             for path in sorted((ROOT / directory).rglob('*')):

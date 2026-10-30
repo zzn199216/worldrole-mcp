@@ -1,40 +1,40 @@
 # WorldRole MCP
 
-**简体中文** | [English](README.en.md)
+**English** | [简体中文](README.zh-CN.md)
 
-已支持从本仓库安装免费插件。Claude Code：`/plugin install worldrole --marketplace zzn199216/worldrole-mcp`。Gemini CLI 与 Qwen Code 参见[各平台安装与免费额度](docs/MARKETPLACES.md)。仓库安装与官方市场审核是不同状态。
+Install the free plugin from this repository with Claude Code: `/plugin install worldrole --marketplace zzn199216/worldrole-mcp`. See [marketplace installation and free limits](docs/MARKETPLACES.md) for Gemini CLI, Qwen Code, and other clients. Direct installation does not imply an approved official listing.
 
-**找全球远程工作，或提供签证支持的海外岗位。让 AI 从筛选、评分一路帮到投递。**
+**Find remote jobs worldwide or overseas roles offering visa sponsorship. Let AI help from search and match scoring through application.**
 
-WorldRole 是一个免费的求职 MCP 与 Agent 工作流：把多个职位来源、你的职业信息和申请步骤连接起来，让 AI 帮你判断哪些机会值得申请，并继续准备材料、协助投递和跟进回复。
+WorldRole is a free job-search MCP and agent workflow. It connects multiple job sources, your career context and application steps so your AI can identify worthwhile opportunities, prepare materials, assist with applications and follow up on replies.
 
-## AI 能帮你做到哪一步？
+## How far can your AI take you?
 
-| 求职环节 | 你得到什么 |
+| Stage | What you get |
 |---|---|
-| **发现机会** | 从多个来源寻找全球远程、海外及签证支持相关岗位，保留招聘原始链接 |
-| **匹配与评分** | 根据你的经历、技能和偏好评估匹配度，说明推荐理由、差距与待核实条件 |
-| **准备申请** | 复用已有经历和材料，起草、调整求职信与申请内容，必要缺项一次问齐 |
-| **投递与跟进** | 使用已连接的邮箱或可用工具，在授权范围内协助发送、记录投递、跟进和处理常规回复；面试、谈薪及本人决定再交给你 |
+| **Discover opportunities** | Search multiple sources for remote, overseas and visa-sponsorship opportunities, with original listing links |
+| **Assess and score fit** | Evaluate matches against your experience, skills and preferences, with reasons, gaps and conditions to verify |
+| **Prepare applications** | Reuse known experience and materials to draft and tailor letters and application content; collect essential missing details together |
+| **Apply and follow up** | Use a connected mailbox or available tools for authorized sending, application records, follow-ups and routine replies; bring interviews, salary discussions and personal decisions to you |
 
-评分帮助判断申请优先级，不代表录用概率。远程岗位的可申请地区、雇主是否提供签证支持，仍需按具体招聘要求核实。
+Scores help prioritize applications; they are not hiring probabilities. Remote location eligibility and visa sponsorship must be checked against each job's actual requirements.
 
-## 复制一句话，交给 Agent 开始
+## Copy one request to get started
 
-> 请按 https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md 帮我安装 WorldRole 和免费职位源。安装配置由你完成，保留已有连接。按我的经历和偏好寻找全球远程或提供签证支持的海外岗位，评估匹配度并协助准备申请；已有信息直接用，必要缺项一次问齐。
+> Follow https://raw.githubusercontent.com/zzn199216/worldrole-mcp/main/INSTALL_FREE_SOURCES.md to install WorldRole and its free job sources for me. Handle setup and preserve my existing connections. Find remote jobs worldwide or overseas roles offering visa sponsorship that fit my experience and preferences, assess the matches and help prepare applications. Reuse known information and ask for essential missing details together.
 
-发给能安装工具、配置 MCP 的 Agent 即可。无需先注册、填完整简历或配置邮箱。仅支持网页连接的客户端可参考[连接说明](docs/CLOUD_PROFILE.md)。
+Send it to an agent that can install tools and configure MCP. No registration, complete resume or mailbox setup is needed to start. For clients that only support web connections, see the [connection guide](docs/CLOUD_PROFILE.md).
 
-## 多个免费来源，少一点重复操作
+## More free sources, less repeated setup
 
-支持 WorldRole、Himalayas、Jobicy、Arbeitnow，以及 Greenhouse、Ashby、Lever 上的公司招聘页。Agent 按需要选用来源、去重并保留出处，你不用逐个配置。各来源的覆盖范围和免费额度不同，AI 客户端或模型可能另行收费。
+Sources include WorldRole, Himalayas, Jobicy, Arbeitnow, and company career pages on Greenhouse, Ashby and Lever. Your agent selects sources as needed, removes duplicate links and preserves attribution. You do not need to configure each source separately. Coverage and free quotas vary; your AI client or model may charge separately.
 
-首次使用，Agent 会用两个 **0～10 分**简短说明它对你的“职业能力”和“求职资料”了解多少，各附一句依据。这与岗位匹配评分不同，也不评价你的能力强弱；即使都是 0，也可以边找边了解。
+On first use, your agent gives two **0–10 scores** for its understanding of your career capabilities and its knowledge of your application materials, each with a short reason. These are separate from job-match scores and do not rate your ability. Even at zero, it can start exploring and learn as you go.
 
-邮箱优先复用已有连接，实际收发和表单操作取决于可用工具与授权。持续查收需要运行中的定时任务；没有配置时，下次使用再检查。个人申请记录保存在本机，简历与邮件不会作为搜索内容发给职位源。
+Reuse an existing mailbox connection. Actual email and form actions depend on available tools and authorization. Ongoing inbox checks require a running scheduled task; otherwise checks resume next time. Application records stay on your computer, and resumes and correspondence are not sent to job sources as search content.
 
 ---
 
-[手动安装与工具参考](docs/MANUAL.zh-CN.md) · [邮箱与跟进说明](docs/APPLICATIONS.md) · [来源说明](docs/SOURCES.md) · [可选职业摘要](docs/CLOUD_PROFILE.md) · [参与贡献](CONTRIBUTING.md)
+[Manual setup and tools](docs/MANUAL.en.md) · [Mail and follow-ups](docs/APPLICATIONS.md) · [Source details](docs/SOURCES.md) · [Optional career summaries](docs/CLOUD_PROFILE.md) · [Contributing](CONTRIBUTING.md)
 
-原创代码与技能使用 [MIT License](LICENSE)。第三方职位数据保留各自的使用条款。
+Original code and skills use the [MIT License](LICENSE). Third-party job data retains its own terms.
